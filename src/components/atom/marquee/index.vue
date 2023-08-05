@@ -1,61 +1,75 @@
 <template>
-  <!--  <marquee class="marquee">Приглашение</marquee>-->
-  <div class="marquee">
-    <p class="marquee__content">{{ text }}</p>
+  <div ref="marquee" class="marquee">
+    <span ref="item" class="marquee__content">{{ text }}</span>
+    <span v-for="itemText in items" :key="itemText" class="marquee__content">{{ itemText }}</span>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { onMounted, ref } from "vue"
+
+const props = defineProps({
   text: {
     type: String,
     default: ""
   }
 })
+
+const marquee = ref(null)
+const item = ref(null)
+
+let marqueeWidth = 0
+const itemsWidth = ref(0)
+const items = ref([])
+
+const updateMarquee = () => {
+  itemsWidth.value += item.value.offsetWidth
+
+  if (marqueeWidth * 2 > itemsWidth.value) {
+    items.value.push(props.text)
+    updateMarquee()
+  }
+}
+
+onMounted(() => {
+  marqueeWidth = marquee.value.offsetWidth
+  updateMarquee()
+})
 </script>
 
 <style scoped lang="scss">
 .marquee {
-  text-align: right;
-  overflow: hidden;
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  animation: animate-text 10s linear infinite;
+
+  @keyframes animate-text {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
 
   &__content {
     position: relative;
     white-space: nowrap;
     text-transform: uppercase;
-    display: inline-block;
     font-weight: 600;
-    animation: text 5s infinite linear;
 
-    &::before,
     &::after {
       content: "";
       position: absolute;
       top: 50%;
-      width: 4px;
-      height: 4px;
+      right: -15px;
+      width: 2px;
+      height: 2px;
       border-radius: 50%;
       background-color: #000;
       transform: translate(0, -50%);
     }
-
-    &::before {
-      left: -10px;
-    }
-
-    &::after {
-      right: -10px;
-    }
-
-    @keyframes text {
-      0% {
-        transform: translate(0, 0);
-      }
-      100% {
-        transform: translate(-150%, 0);
-      }
-    }
   }
 }
-
 </style>

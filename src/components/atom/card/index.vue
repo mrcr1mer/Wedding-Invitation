@@ -9,28 +9,33 @@ defineProps({
   mark: {
     type: Boolean,
     default: false
+  },
+  borderRadius: {
+    type: String,
+    default: "50px"
   }
 })
 </script>
 
 <style lang="scss" scoped>
 .card {
-  height: 1000px;
+  overflow: hidden;
   border: 1px solid #000;
   padding: 20px;
-  border-radius: 50px;
+  border-radius: v-bind(borderRadius);
 
   &.mark {
     position: relative;
+
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;
       width: 40px;
       height: 40px;
       background-color: #000;
-      border-radius: 0 20px 0 20px;
+      border-radius: 0 v-bind(borderRadius) 0 v-bind(borderRadius);
     }
   }
 }

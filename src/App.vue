@@ -8,4 +8,11 @@ import { RouterView } from "vue-router"
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app {
+  overflow: hidden;
+  min-height: 100vh;
+  //background: url("@/assets/images/background.png") repeat;
+  //filter: contrast(0%) brightness(160%) blur(1px);
+}
+</style>

@@ -4,9 +4,9 @@
     <div style="background-color: #464646">
       <acceptable-colors :colors="colors" />
     </div>
-    <card mark>
+    <card border-radius="20px" mark>
       <countdown-timer target-date="2023-08-27" />
-<!--      <scroll-marquee text="Приглашение"/>-->
+      <scroll-marquee text="Приглашение"/>
     </card>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <script setup>
 import BaseButton from "@/components/atom/base-button"
 import AcceptableColors from "@/components/atom/acceptable-colors"
-import CountdownTimer from "@/components/atom/countdown"
+import CountdownTimer from "@/components/atom/countdown-timer"
 import ScrollMarquee from "@/components/atom/marquee"
 import Card from "@/components/atom/card"
 
@@ -27,7 +27,7 @@ const colors = ["#fff", "#000"]
 
 <style scoped lang="scss">
 .container {
-  max-width: 320px;
+  max-width: 480px;
   margin-inline: auto;
 }
 </style>
