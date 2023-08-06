@@ -19,6 +19,8 @@ defineProps({
 
 <style lang="scss" scoped>
 .card {
+  position: relative;
+  text-align: center;
   overflow: hidden;
   border: 1px solid #000;
   padding: 20px;

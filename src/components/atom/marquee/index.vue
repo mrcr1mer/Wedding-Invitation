@@ -19,13 +19,13 @@ const marquee = ref(null)
 const item = ref(null)
 
 let marqueeWidth = 0
-const itemsWidth = ref(0)
+let itemsWidth = 0
 const items = ref([])
 
 const updateMarquee = () => {
-  itemsWidth.value += item.value.offsetWidth
+  itemsWidth += item.value.offsetWidth
 
-  if (marqueeWidth * 2 > itemsWidth.value) {
+  if (marqueeWidth * 2 > itemsWidth) {
     items.value.push(props.text)
     updateMarquee()
   }
@@ -42,14 +42,15 @@ onMounted(() => {
   width: 100%;
   display: flex;
   gap: 30px;
-  animation: animate-text 10s linear infinite;
+  animation: animate-text 5s linear infinite;
 
   @keyframes animate-text {
     0% {
       transform: translateX(0);
     }
+
     100% {
-      transform: translateX(-200%);
+      transform: translateX(-310px);
     }
   }
 

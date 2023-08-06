@@ -7,5 +7,11 @@
 
 <script setup>
 import MainPage from "@/components/pages/main/index.vue"
-import PlugPage from "@/components/pages/plug"
+import PlugPage from "@/components/pages/plug/index.vue"
 </script>
+
+<style scoped lang="scss">
+.page {
+  padding: 20px;
+}
+</style>
