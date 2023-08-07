@@ -1,5 +1,6 @@
 <template>
   <div class="notes">
+    <h2>До свадьбы осталось</h2>
     <countdown-timer target-date="2023-08-27" />
   </div>
 </template>
