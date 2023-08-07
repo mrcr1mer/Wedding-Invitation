@@ -1,21 +1,23 @@
 <template>
-  <div class="event-details">
-    <div class="event-details__item first">
-      <img src="@/assets/images/newlyweds.jpg" alt="Молодожены">
+  <section>
+    <div class="event-details">
+      <div class="event-details__item first">
+        <img src="@/assets/images/newlyweds.jpg" alt="Молодожены">
+      </div>
+      <div class="event-details__item second">
+        <span>Когда?</span>
+        <date class="event-details__date">27 августа 2023</date>
+      </div>
+      <div class="event-details__item third">
+        <span>Когда?</span>
+        <div class="event-details__place">Загородный отель 'АЛЬБАТРОС'</div>
+        <span>с. Охотское</span>
+      </div>
+      <div class="event-details__item fourth">
+        <img src="@/assets/images/newlyweds.jpg" alt="Молодожены">
+      </div>
     </div>
-    <div class="event-details__item second">
-      <span>Когда?</span>
-      <date class="event-details__date">27 августа 2023</date>
-    </div>
-    <div class="event-details__item third">
-      <span>Когда?</span>
-      <div class="event-details__date">Загородный отель 'АЛЬБАТРОС'</div>
-      <span class="event-details__date">с. Охотское</span>
-    </div>
-    <div class="event-details__item fourth">
-      <img src="@/assets/images/newlyweds.jpg" alt="Молодожены">
-    </div>
-  </div>
+  </section>
 </template>
  
 <script setup>
@@ -25,10 +27,18 @@
 .event-details {
   display: grid;
   grid-template: repeat(2, 200px) / repeat(2, 1fr);
+  margin: 0 -20px;
+  $self: &;
 
   &__item {
-    border: 1px solid $mainColor;
     position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
 
     img {
       position: absolute;
@@ -41,22 +51,38 @@
 
     &.first {
       background-color: #272526;
+
       img {
         border-radius: 50%;
       }
     }
 
     &.second {
-      background-color: #272526;
+      border-top: 1px solid $mainColor;
+      border-bottom: 1px solid $mainColor;
+      justify-content: flex-start;
+
+      #{$self}__date {
+        font-size: 24px;
+
+        text-align: center;
+      }
+
     }
 
     &.third {
+      color: #fff;
       background-color: #3c3f35;
+
+      #{$self}__place {
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: center;
+      }
     }
 
     &.fourth {
-      background-color: #272526;
-
+      border-bottom: 1px solid $mainColor;
     }
   }
 }

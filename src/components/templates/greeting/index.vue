@@ -1,24 +1,26 @@
 <template>
-  <card>
-    <div class="greeting">
-      <div class="greeting__logo">
-        <img src="@/assets/icons/date.svg" alt="title">
+  <section>
+    <card>
+      <div class="greeting">
+        <div class="greeting__logo">
+          <img src="@/assets/icons/date.svg" alt="title">
+        </div>
+        <div class="greeting__marquee">
+          <scroll-marquee text="Приглашение" />
+        </div>
+        <div class="greeting__image">
+          <img src="@/assets/images/newlyweds.jpg" alt="молодожены">
+        </div>
+        <div class="greeting__content">
+          <h1 class="greeting__title">Дорогие друзья и родные</h1>
+          <p class="greeting__text">Весной состоится очень важное и радостное для нас событие наша свадьба</p>
+          <p class="greeting__text">Этот день невозможно представить без самых близких для нас людей, мы бы очень
+            хотели,чтобы
+            вы провели его вместе с нами</p>
+        </div>
       </div>
-      <div class="greeting__marquee">
-        <scroll-marquee text="Приглашение" />
-      </div>
-      <div class="greeting__image">
-        <img src="@/assets/images/newlyweds.jpg" alt="молодожены">
-      </div>
-      <div class="greeting__content">
-        <h1 class="greeting__title">Дорогие друзья и родные</h1>
-        <p class="greeting__text">Весной состоится очень важное и радостное для нас событие наша свадьба</p>
-        <p class="greeting__text">Этот день невозможно представить без самых близких для нас людей, мы бы очень
-          хотели,чтобы
-          вы провели его вместе с нами</p>
-      </div>
-    </div>
-  </card>
+    </card>
+  </section>
 </template>
  
 <script setup>
