@@ -39,7 +39,7 @@ defineEmits(['update:modelValue'])
     &:checked ~ {
       .radio-button__check-mark {
         &::after {
-          transform: scale(1) translate(-50%, -50%);
+          transform: scale(1);
         }
       }
     }
@@ -63,12 +63,12 @@ defineEmits(['update:modelValue'])
     &::after {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 10px;
+      top: 4px;
+      left: 4px;
       width: 12px;
       height: 12px;
       background-color: rgb(60, 63, 53);
-      transform: scale(0) translate(-50%, -50%);
+      transform: scale(0);
       transition: transform 0.2s ease-in-out;
       border-radius: 50%;
     }
