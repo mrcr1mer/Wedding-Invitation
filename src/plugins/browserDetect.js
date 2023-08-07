@@ -1,3 +1,5 @@
+import { reactive } from 'vue'
+
 function detectPlatform() {
   const userAgent = navigator.userAgent
 
@@ -24,24 +26,22 @@ function detectPlatform() {
 
 export const browserDetectPlugin = {
   install: function (app) {
-    let currentPlatform = detectPlatform()
+    const currentPlatform = reactive(detectPlatform())
     app.config.globalProperties.$platform = currentPlatform
 
     window.addEventListener('resize', () => {
       const newPlatform = detectPlatform()
 
-      if (newPlatform !== currentPlatform) {
-        currentPlatform = newPlatform
-        app.config.globalProperties.$platform = currentPlatform
+      if (newPlatform !== currentPlatform.value) {
+        Object.assign(currentPlatform, newPlatform)
       }
     })
 
     window.addEventListener('orientationchange', () => {
       const newPlatform = detectPlatform()
 
-      if (newPlatform !== currentPlatform) {
-        currentPlatform = newPlatform
-        app.config.globalProperties.$platform = currentPlatform
+      if (newPlatform !== currentPlatform.value) {
+        Object.assign(currentPlatform, newPlatform)
       }
     })
   }
