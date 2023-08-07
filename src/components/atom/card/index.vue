@@ -28,6 +28,7 @@ defineProps({
 
   &.mark {
     position: relative;
+    padding-top: 50px;
 
     &:before {
       content: '';

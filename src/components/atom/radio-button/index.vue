@@ -26,4 +26,52 @@ defineProps({
 defineEmits(['update:modelValue'])
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.radio-button {
+  position: relative;
+
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked ~ {
+      .radio-button__check-mark {
+        &::after {
+          transform: scale(1) translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  &__check-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      flex: 0 0 20px;
+      height: 20px;
+      border: 1.5px solid rgb(60, 63, 53);
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      width: 12px;
+      height: 12px;
+      background-color: rgb(60, 63, 53);
+      transform: scale(0) translate(-50%, -50%);
+      transition: transform 0.2s ease-in-out;
+      border-radius: 50%;
+    }
+  }
+}
+</style>

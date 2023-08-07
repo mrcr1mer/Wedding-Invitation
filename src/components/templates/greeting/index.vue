@@ -32,6 +32,10 @@ import ScrollMarquee from '@/components/atom/marquee/index.vue'
 </script>
 
 <style scoped lang="scss">
+section {
+  padding: 40px 20px;
+}
+
 .greeting {
   display: flex;
   flex-direction: column;
@@ -51,7 +55,7 @@ import ScrollMarquee from '@/components/atom/marquee/index.vue'
   &__image {
     margin-top: 50px;
     width: 100%;
-    height: 340px;
+    height: 400px;
     position: relative;
 
     img {
@@ -72,12 +76,15 @@ import ScrollMarquee from '@/components/atom/marquee/index.vue'
   }
 
   &__title {
-    font-size: 26px;
+    font-family: sans-serif;
+    font-size: 35px;
   }
 
   &__text {
-    font-size: 17px;
-    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
     line-height: 1.5;
   }
 }

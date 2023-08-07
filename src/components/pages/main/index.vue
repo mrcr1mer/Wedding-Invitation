@@ -7,7 +7,7 @@
     <notes />
     <attendee-info />
   </main>
-  <footer>Ждем вас на торжестве</footer>
+  <footer class="footer">Ждем вас на торжестве</footer>
 </template>
 
 <script setup>
@@ -23,12 +23,17 @@ import AttendeeInfo from '@/components/templates/attendee-info/index.vue'
 .page {
   max-width: 480px;
   margin-inline: auto;
-  padding: 20px;
 }
 
-section {
-  &:not(:last-child) {
-    margin-bottom: 40px;
+.footer {
+  padding: 20px 20px 40px;
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  &::after {
+    content: '❤';
+    color: #484848;
   }
 }
 </style>

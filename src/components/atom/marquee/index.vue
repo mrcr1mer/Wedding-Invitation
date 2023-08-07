@@ -50,7 +50,7 @@ onMounted(() => {
     }
 
     100% {
-      transform: translateX(-310px);
+      transform: translateX(-320px);
     }
   }
 

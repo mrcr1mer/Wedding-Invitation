@@ -13,6 +13,10 @@ export default defineConfig({
     }
   },
   css: {
+    modules: {
+      generateScopedName: "[hash:base64:5]",
+      hashPrefix: " ",
+    },
     preprocessorOptions: {
       scss: {
         additionalData: `@import "@/assets/styles/vars.scss";`

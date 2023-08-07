@@ -24,10 +24,10 @@ defineEmits(['click'])
 
 <style scoped lang="scss">
 .button {
-  padding: 20px;
+  height: 50px;
+  padding: 0 20px;
   width: 100%;
   font-size: 1.25rem;
-  font-weight: 500;
   background-color: v-bind(bgColor);
   color: #fff;
 }
