@@ -1,25 +1,25 @@
 <template>
-  <button @click="$emit('click')" class="button" :type="type" :style="{ '--color': color }">
+  <button class="button" @click="$emit('click')" :type="type">
     <slot>Отправить</slot>
   </button>
 </template>
 
 <script setup>
 defineProps({
-  color: {
+  bgColor: {
     type: String,
-    default: "#3c3f35"
+    default: '#3c3f35'
   },
   type: {
     type: String,
-    default: "button",
+    default: 'button',
     validator(value) {
-      return ["button", "submit", "clear"].includes(value)
+      return ['button', 'submit', 'clear'].includes(value)
     }
   }
 })
 
-defineEmits(["click"])
+defineEmits(['click'])
 </script>
 
 <style scoped lang="scss">
@@ -28,7 +28,7 @@ defineEmits(["click"])
   width: 100%;
   font-size: 1.25rem;
   font-weight: 500;
-  background-color: var(--color);
+  background-color: v-bind(bgColor);
   color: #fff;
 }
 </style>

@@ -12,7 +12,7 @@ defineProps({
   },
   borderRadius: {
     type: String,
-    default: "50px"
+    default: '50px'
   }
 })
 </script>
@@ -30,7 +30,7 @@ defineProps({
     position: relative;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       right: 0;

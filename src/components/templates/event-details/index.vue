@@ -2,11 +2,11 @@
   <section>
     <div class="event-details">
       <div class="event-details__item first">
-        <img src="@/assets/images/newlyweds.jpg" alt="Молодожены">
+        <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
       </div>
       <div class="event-details__item second">
         <span>Когда?</span>
-        <date class="event-details__date">27 августа 2023</date>
+        <time class="event-details__date">27 августа 2023</time>
       </div>
       <div class="event-details__item third">
         <span>Когда?</span>
@@ -14,15 +14,14 @@
         <span>с. Охотское</span>
       </div>
       <div class="event-details__item fourth">
-        <img src="@/assets/images/newlyweds.jpg" alt="Молодожены">
+        <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
       </div>
     </div>
   </section>
 </template>
- 
-<script setup>
-</script>
- 
+
+<script setup></script>
+
 <style scoped lang="scss">
 .event-details {
   display: grid;
@@ -67,7 +66,6 @@
 
         text-align: center;
       }
-
     }
 
     &.third {
@@ -87,4 +85,3 @@
   }
 }
 </style>
- 

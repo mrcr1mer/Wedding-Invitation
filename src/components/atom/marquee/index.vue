@@ -6,12 +6,12 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue"
+import { onMounted, ref } from 'vue'
 
 const props = defineProps({
   text: {
     type: String,
-    default: ""
+    default: ''
   }
 })
 
@@ -61,7 +61,7 @@ onMounted(() => {
     font-weight: 600;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       right: -15px;

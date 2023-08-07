@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue"
+import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
   targetDate: {
@@ -42,13 +42,13 @@ const formattedTime = computed(() => {
     const days = Math.floor(timeLeft.value / (1000 * 60 * 60 * 24))
     const hours = Math.floor((timeLeft.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       .toString()
-      .padStart(2, "0")
+      .padStart(2, '0')
     const minutes = Math.floor((timeLeft.value % (1000 * 60 * 60)) / (1000 * 60))
       .toString()
-      .padStart(2, "0")
+      .padStart(2, '0')
     const seconds = Math.floor((timeLeft.value % (1000 * 60)) / 1000)
       .toString()
-      .padStart(2, "0")
+      .padStart(2, '0')
     return { days, hours, minutes, seconds }
   }
 })

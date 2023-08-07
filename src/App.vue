@@ -1,5 +1,5 @@
 <script setup>
-import { RouterView } from "vue-router"
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -13,6 +13,6 @@ import { RouterView } from "vue-router"
   overflow: hidden;
   min-height: 100vh;
   //background: url("@/assets/images/background.png") repeat;
-  //filter: contrast(0%) brightness(160%) blur(1px); 
+  //filter: contrast(0%) brightness(160%) blur(1px);
 }
 </style>
