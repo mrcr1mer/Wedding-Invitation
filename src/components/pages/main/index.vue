@@ -2,6 +2,7 @@
   <main class="page">
     <greeting />
     <event-details />
+    <Map />
     <schedule />
     <dress-code />
     <notes />
@@ -13,6 +14,7 @@
 <script setup>
 import Greeting from '@/components/templates/greeting/index.vue'
 import EventDetails from '@/components/templates/event-details/index.vue'
+import Map from '@/components/templates/map/index.vue'
 import Schedule from '@/components/templates/schedule/index.vue'
 import DressCode from '@/components/templates/dress-code/index.vue'
 import Notes from '@/components/templates/notes/index.vue'
@@ -31,6 +33,7 @@ import AttendeeInfo from '@/components/templates/attendee-info/index.vue'
   font-size: 30px;
   display: flex;
   flex-direction: column;
+
   &::after {
     content: '❤';
     color: #484848;

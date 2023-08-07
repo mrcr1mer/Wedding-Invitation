@@ -9,18 +9,14 @@
     </div>
     <div class="event-details__item third">
       <div class="event-details__label">Где?</div>
-      <div class="event-details__place">Загородный отель 'АЛЬБАТРОС'</div>
-      <span>с. Охотское</span>
+      <div class="event-details__place">Трасса Алматы-Бишкек, 114</div>
+      <span>Rancho Club</span>
     </div>
     <div class="event-details__item fourth">
       <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
     </div>
   </section>
 </template>
-
-<script setup>
-import Preloader from '@/App.vue'
-</script>
 
 <style scoped lang="scss">
 .event-details {

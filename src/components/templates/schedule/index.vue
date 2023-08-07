@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <h2 class="schedule__title small">23 марта</h2>
+    <!-- <h2 class="schedule__title small">23 марта</h2>
     <div class="schedule__items">
       <div v-for="item in secondDay" :key="item.id" class="schedule__item">
         <span class="schedule__time">{{ item.time }}</span>
@@ -21,7 +21,7 @@
           <div v-if="item.text" class="schedule__text">{{ item.text }}</div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -29,27 +29,33 @@
 const firstDay = [
   {
     id: 1,
-    time: '11:30',
-    title: 'Торжественная Церемония',
-    text: 'Анивский ЗАГС г. Анива, улица Кирова, 25'
+    time: '17:00',
+    title: 'СБОР ГОСТЕЙ',
+    text: ''
   },
   {
     id: 2,
-    time: '16:00',
-    title: 'Встреча и размещение гостей',
-    text: 'Загородный отель “Альбатрос" В нашем распоряжения будет большой дом, где для каждого гостя забронирован номер с 22 по 23 марта.”'
+    time: '17:30 ',
+    title: 'НАЧАЛО ТОРЖЕСТВЕННОЙ ЦЕРЕМОНИИ',
+    text: ''
   },
   {
     id: 3,
-    time: '18:00',
-    title: 'Свадебный ужин',
+    time: '18:30',
+    title: 'ОСНОВНАЯ ПРОГРАММА',
     text: ''
   },
   {
     id: 4,
-    time: '23:00',
-    title: 'Баня и пижамная вечеринка',
-    text: 'На территории дома будет баня, бассейн и джакузи. Пожалуйста, не забудьте взять собой купальники и пижаму!'
+    time: '23:30-00:00',
+    title: 'ЗАВЕРШАЮЩАЯ ЧАСТЬ',
+    text: ''
+  },
+  {
+    id: 5,
+    time: '00:00',
+    title: 'АФТЕР-ПАТИ ДЛЯ ДРУЗЕЙ ',
+    text: ''
   }
 ]
 
