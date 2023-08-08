@@ -20,7 +20,7 @@ defineProps({
 .acceptable-colors {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
 
   &__item {
     display: flex;

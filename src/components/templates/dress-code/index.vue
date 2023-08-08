@@ -65,7 +65,7 @@ const manColors = [
 .dress-code {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   background-color: #3c3f35;
   color: #fff;
 
