@@ -1,12 +1,14 @@
 <template>
   <preloader v-if="isLoading" />
-  <div v-else class="wrapper">
-    <RouterView />
+  <div class="wrapper">
+    <main-page v-if="$platform.isMobile" />
+    <plug-page v-else-if="$platform.isWeb || $platform.isTablet" />
   </div>
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router'
+import MainPage from '@/components/pages/main/index.vue'
+import PlugPage from '@/components/pages/plug/index.vue'
 import Preloader from '@/components/atom/preloader/index.vue'
 import { onMounted, ref } from 'vue'
 
@@ -14,7 +16,10 @@ const isLoading = ref(true)
 
 onMounted(() => {
   window.addEventListener('load', () => {
-    isLoading.value = false
+    document.documentElement.classList.add('loaded')
+    setTimeout(() => {
+      isLoading.value = false
+    }, 1000)
   })
 })
 </script>

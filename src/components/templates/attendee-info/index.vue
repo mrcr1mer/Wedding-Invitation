@@ -26,7 +26,6 @@ import BaseButton from '@/components/atom/base-button/index.vue'
 import BaseInput from '@/components/atom/base-input/index.vue'
 import RadioButton from '@/components/atom/radio-button/index.vue'
 import { ref } from 'vue'
-import Preloader from "@/App.vue"
 
 const textInput = ref('')
 const selectedOption = ref('')
@@ -39,10 +38,6 @@ const optionsInfo = [
   {
     label: 'Придти не получится',
     value: 'no',
-  },
-  {
-    label: 'Скажу ответ чуть позже',
-    value: 'later',
   }
 ]
 const sendInfo = (data) => {
