@@ -38,7 +38,7 @@ defineProps({
       width: 40px;
       height: 40px;
       background-color: #000;
-      border-radius: 0 v-bind(borderRadius) 0 v-bind(borderRadius);
+      border-radius: 0 calc( v-bind(borderRadius) - 1px) 0 v-bind(borderRadius);
     }
   }
 }

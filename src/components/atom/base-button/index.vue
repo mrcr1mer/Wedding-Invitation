@@ -24,6 +24,7 @@ defineEmits(['click'])
 
 <style scoped lang="scss">
 .button {
+  font-family: Roboto+Slab, serif;
   height: 50px;
   padding: 0 20px;
   width: 100%;

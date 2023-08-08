@@ -1,11 +1,12 @@
 <template>
-  <div class="attendee-info">
-    <h1 class="attendee-info__title">Пожалуйста, подтвердите свое присутствие</h1>
-    <form class="attendee-info__form" @submit.prevent>
-      <base-input v-model="textInput" placeholder="Имя и Фамилия" />
+  <section class="attendee-info">
+    <h1 v-animate.title class="title">Пожалуйста, подтвердите свое присутствие</h1>
+    <form class="attendee-info__form text" @submit.prevent>
+      <base-input v-animate v-model="textInput" placeholder="Имя и Фамилия" />
       <div class="attendee-info__options">
-        <div class="attendee-info__label">Присутствие?</div>
+        <div v-animate class="attendee-info__label">Присутствие?</div>
         <radio-button
+          v-animate
           v-for="item in optionsInfo"
           :key="item.value"
           :id="item.value"
@@ -16,9 +17,9 @@
           {{ item.label }}
         </radio-button>
       </div>
-      <base-button type="submit" @click="sendInfo"> Отправить </base-button>
+      <base-button v-animate type="submit" @click="sendInfo"> Отправить</base-button>
     </form>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -32,12 +33,12 @@ const selectedOption = ref('')
 
 const optionsInfo = [
   {
-    label: 'Я прийду/мы придём',
-    value: 'yes',
+    label: 'Я буду/мы будем ',
+    value: 'yes'
   },
   {
-    label: 'Придти не получится',
-    value: 'no',
+    label: 'К сожалению не получится присутствовать',
+    value: 'no'
   }
 ]
 const sendInfo = (data) => {
@@ -47,22 +48,16 @@ const sendInfo = (data) => {
 
 <style lang="scss" scoped>
 .attendee-info {
-  padding: 40px 20px;
+  padding-top: 0;
 
-  &__title {
-    text-transform: uppercase;
-    font-size: 26px;
-    margin-bottom: 40px;
+  .title {
+    margin-bottom: 30px;
   }
 
   &__form {
-    font-family: Roboto, sans-serif;
-    font-style: italic;
-    font-size: 18px;
-    font-weight: 300;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
   }
 
   &__options {

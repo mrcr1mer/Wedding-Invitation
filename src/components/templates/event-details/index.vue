@@ -1,25 +1,34 @@
 <template>
   <section class="event-details">
     <div class="event-details__item first">
-      <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
+      <picture>
+        <source srcset="@/assets/images/newlyweds.webp" type="image/webp">
+        <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+      </picture>
     </div>
     <div class="event-details__item second">
-      <div class="event-details__label">Когда?</div>
-      <time class="event-details__date">27 августа 2023</time>
+      <div v-animate.title class="event-details__label text">Когда?</div>
+      <time v-animate.title datetime="2023-08-27" class="event-details__date title">
+        27 августа 2023
+      </time>
     </div>
     <div class="event-details__item third">
-      <div class="event-details__label">Где?</div>
-      <div class="event-details__place">Трасса Алматы-Бишкек, 114</div>
-      <span>Rancho Club</span>
+      <div v-animate.title class="event-details__label text">Где?</div>
+      <div v-animate.title class="event-details__place">Трасса Алматы-Бишкек, 114</div>
+      <span v-animate.title>Rancho Club</span>
     </div>
     <div class="event-details__item fourth">
-      <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
+      <picture>
+        <source srcset="@/assets/images/newlyweds.webp" type="image/webp">
+        <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+      </picture>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 .event-details {
+  padding: 0;
   display: grid;
   grid-template: repeat(2, 220px) / repeat(2, 1fr);
 
@@ -49,17 +58,27 @@
 
       img {
         border-radius: 50%;
-        width: 150px;
-        height: 150px;
+        width: 170px;
+        height: 170px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        @media (max-width: 400px) {
+          width: 150px;
+          height: 150px;
+        }
+
+        @media (max-width: 330px) {
+          width: 130px;
+          height: 130px;
+        }
       }
     }
 
     &.second {
-      border-top: 1px solid $mainColor;
-      border-bottom: 1px solid $mainColor;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
       justify-content: flex-start;
       gap: 30px;
     }
@@ -69,13 +88,10 @@
       background-color: #3c3f35;
 
       span {
+        font-size: 18px;
         text-transform: none;
       }
     }
-  }
-
-  &__date {
-    font-size: 26px;
   }
 
   &__place {
@@ -83,8 +99,7 @@
   }
 
   &__label {
-    font-family: Roboto, sans-serif;
-    font-weight: 300;
+    font-style: normal;
   }
 }
 </style>

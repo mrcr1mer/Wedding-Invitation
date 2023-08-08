@@ -41,14 +41,14 @@ const onInputBlur = () => {
 
 <style lang="scss" scoped>
 .input {
+  font-family: Roboto+Slab, serif;
   background: none;
   height: 30px;
   border-bottom: 1px solid #000;
-  font-size: 18px;
+  font-size: 1.25rem;
 
   &::placeholder,
   &:-moz-placeholder {
-    font-family: Roboto, sans-serif;
     opacity: 0.7;
     font-weight: 300;
     font-style: italic;

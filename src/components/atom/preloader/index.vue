@@ -6,7 +6,14 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  color: {
+    type: String,
+    default: '#000'
+  }
+})
+</script>
 
 <style lang="scss" scoped>
 .preloader {
@@ -41,7 +48,7 @@
   height: 100%;
   top: 50%;
   left: 50%;
-  border: 7px solid #414141;
+  border: 7px solid v-bind(color);
   border-top-color: transparent;
   border-radius: 50%;
   animation: preloaderRotate 1s linear infinite;

@@ -1,57 +1,77 @@
 <template>
   <section class="dress-code">
-    <h2 class="dress-code__title">О дресс-коде</h2>
-    <div class="dress-code__text">
+    <h2 v-animate.title class="title">О дресс-коде</h2>
+    <p v-animate class="text">
       Мы будем очень благодарны, если вы поддержите стиль и цвет нашей свадьбы в своих нарядах:
+    </p>
+    <div v-animate.title class="dress-code__colors">
+      <div class="dress-code__colors-label text">Цвета:</div>
+      <acceptable-colors :colors="womanColors" />
     </div>
-    <div class="dress-code__colors">
-      <div class="dress-code__colors-label">Цвета:</div>
-      <acceptable-colors :colors="colors" />
+    <p v-animate class="text">
+      <span>Девушки: </span> коктейльные платья, такие, как будто вы собираетесь на самую крутую вечеринку!
+    </p>
+    <p v-animate class="text">
+      <span>Мужчины: </span>костюм, рубашка, туфли (цвет черный, синий, бежевый, серый).
+    </p>
+    <div v-animate.title class="dress-code__colors">
+      <div class="dress-code__colors-label text">Цвета:</div>
+      <acceptable-colors :colors="manColors" />
     </div>
-    <div class="dress-code__text">
-      Девушки: коктейльные платья, такие, как будто вы собираетесь на самую крутую вечеринку!
-    </div>
-    <div class="dress-code__text">
-      Мужчины: костюм, рубашка, туфли (цвет черный, синий, бежевый, серый). Мужчины: костюм, рубашка, туфли (цвет черный,
-      серый).
-    </div>
-    <div class="dress-code__text">
-      Важно: мы за современный стиль🤍
-    </div>
+    <p v-animate class="text"><span>Важно: </span> мы за современный стиль<span>&#x2764</span></p>
   </section>
 </template>
 
 <script setup>
-import AcceptableColors from '@/components/atom/acceptable-colors/index.vue'
+import AcceptableColors from "@/components/atom/acceptable-colors/index.vue"
 
-const colors = ['#ffd1ba', '#b8defb', '#a4ac7d']
+const womanColors = [
+  {
+    color: "#ffd1ba",
+    label: "Персиковый"
+  },
+  {
+    color: "#b8defb",
+    label: "Голубой"
+  },
+  {
+    color: "#a4ac7d",
+    label: "Фисташковый"
+  }
+]
+
+const manColors = [
+  {
+    color: "#000",
+    label: "Черный"
+  },
+  {
+    color: "#01013f",
+    label: "Синий"
+  },
+  {
+    color: "#c4a996",
+    label: "Бежевый"
+  },
+  {
+    color: "#a8a5ac",
+    label: "Серый"
+  }
+]
+
 </script>
 
 <style lang="scss" scoped>
 .dress-code {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding: 40px 20px;
+  gap: 20px;
   background-color: #3c3f35;
   color: #fff;
 
   &__colors-label {
-    font-size: 18px;
     margin-bottom: 10px;
-  }
-
-  &__title {
-    text-transform: uppercase;
-    font-size: 26px;
-  }
-
-  &__text {
-    font-family: Roboto, sans-serif;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.2;
-    font-size: 18px;
+    font-weight: 500;
   }
 }
 </style>

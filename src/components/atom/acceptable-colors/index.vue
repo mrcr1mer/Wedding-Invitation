@@ -1,11 +1,9 @@
 <template>
   <div class="acceptable-colors">
-    <div
-      class="acceptable-colors__item"
-      v-for="(color, i) in colors"
-      :key="i"
-      :style="{ '--color': color }"
-    ></div>
+    <div class="acceptable-colors__item" v-for="(item, i) in colors" :key="i">
+      <div class="acceptable-colors__color" :style="{ '--color': item.color }"></div>
+      <span class="acceptable-colors__label">{{ item.label }}</span>
+    </div>
   </div>
 </template>
 
@@ -21,9 +19,16 @@ defineProps({
 <style scoped lang="scss">
 .acceptable-colors {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 
   &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__color {
     height: 80px;
     width: 60px;
     background-color: var(--color);

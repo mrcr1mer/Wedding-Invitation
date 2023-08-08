@@ -9,15 +9,19 @@
           <scroll-marquee text="Приглашение" />
         </div>
         <div class="greeting__image">
-          <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+          <picture>
+            <source srcset="@/assets/images/newlyweds.webp" type="image/webp">
+            <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+          </picture>
         </div>
         <div class="greeting__content">
-          <h1 class="greeting__title">Дорогие наши родные и друзья!</h1>
-          <p class="greeting__text">
-            Летом состоится очень важное и радостное для нас событие- наша свадьба
+          <h1 v-animate.title class="title _anim-title">Дорогие наши родные и друзья!</h1>
+          <p v-animate class="text _anim-text">
+            Летом состоится очень важное и радостное для нас событие - наша свадьба.
           </p>
-          <p class="greeting__text">
-            Этот день невозможно представить без самых близких для нас людей, мы бы очень хотели,чтобы вы провели его вместе с нами
+          <p v-animate class="text _anim-text">
+            Этот день невозможно представить без самых близких для нас людей, мы бы очень
+            хотели, чтобы вы провели его вместе с нами.
           </p>
         </div>
       </div>
@@ -31,14 +35,10 @@ import ScrollMarquee from '@/components/atom/marquee/index.vue'
 </script>
 
 <style scoped lang="scss">
-section {
-  padding: 40px 20px;
-}
-
 .greeting {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 
   &__marquee {
     position: absolute;
@@ -74,17 +74,18 @@ section {
     gap: 20px;
   }
 
-  &__title {
-    font-family: sans-serif;
-    font-size: 35px;
+  .title {
+    transition-delay: 0.2s;
   }
 
-  &__text {
-    font-family: Roboto, sans-serif;
-    font-style: italic;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5;
+  p {
+    &:nth-of-type(1) {
+      transition-delay: 0.3s;
+    }
+    &:nth-of-type(2) {
+      transition-delay: 0.4s;
+    }
   }
+
 }
 </style>

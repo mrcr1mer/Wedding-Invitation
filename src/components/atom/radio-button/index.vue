@@ -20,7 +20,11 @@ defineProps({
   id: [String, Number],
   name: String,
   value: [String, Number],
-  modelValue: [String, Number]
+  modelValue: [String, Number],
+  color: {
+    type: String,
+    default: '#3C3F35'
+  }
 })
 
 defineEmits(['update:modelValue'])
@@ -54,9 +58,10 @@ defineEmits(['update:modelValue'])
 
     &::before {
       content: '';
-      flex: 0 0 20px;
-      height: 20px;
-      border: 1.5px solid rgb(60, 63, 53);
+      align-self: flex-start;
+      flex: 0 0 24px;
+      height: 24px;
+      border: 1.5px solid v-bind(color);
       border-radius: 50%;
     }
 
@@ -65,9 +70,9 @@ defineEmits(['update:modelValue'])
       position: absolute;
       top: 4px;
       left: 4px;
-      width: 12px;
-      height: 12px;
-      background-color: rgb(60, 63, 53);
+      width: 16px;
+      height: 16px;
+      background-color: v-bind(color);
       transform: scale(0);
       transition: transform 0.2s ease-in-out;
       border-radius: 50%;

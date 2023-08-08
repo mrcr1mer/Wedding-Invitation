@@ -1,5 +1,5 @@
 <template>
-  <time class="date" :datetime="targetDate" v-if="timeLeft > 0">
+  <time v-if="timeLeft > 0" class="date" :datetime="targetDate">
     <span class="date__item">
       <strong>{{ formattedTime.days }}</strong>
       <span>дней</span>
@@ -38,19 +38,20 @@ const currentTime = ref(new Date().getTime())
 const timeLeft = ref(targetTimestamp - currentTime.value)
 
 const formattedTime = computed(() => {
-  if (timeLeft.value > 0) {
-    const days = Math.floor(timeLeft.value / (1000 * 60 * 60 * 24))
-    const hours = Math.floor((timeLeft.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      .toString()
-      .padStart(2, '0')
-    const minutes = Math.floor((timeLeft.value % (1000 * 60 * 60)) / (1000 * 60))
-      .toString()
-      .padStart(2, '0')
-    const seconds = Math.floor((timeLeft.value % (1000 * 60)) / 1000)
-      .toString()
-      .padStart(2, '0')
-    return { days, hours, minutes, seconds }
-  }
+  if (!timeLeft.value) return
+
+  const days = Math.floor(timeLeft.value / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((timeLeft.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    .toString()
+    .padStart(2, '0')
+  const minutes = Math.floor((timeLeft.value % (1000 * 60 * 60)) / (1000 * 60))
+    .toString()
+    .padStart(2, '0')
+  const seconds = Math.floor((timeLeft.value % (1000 * 60)) / 1000)
+    .toString()
+    .padStart(2, '0')
+  return { days, hours, minutes, seconds }
+
 })
 
 const updateTimeLeft = () => {
@@ -67,7 +68,7 @@ onMounted(() => {
 .date {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 
   &__item {
@@ -76,17 +77,24 @@ onMounted(() => {
     align-items: center;
 
     strong {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+    }
+
+    span {
+      font-size: 1.25rem;
     }
   }
 
   .colon {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 
 .time-up {
+  display: block;
+  width: 100%;
+  text-align: center;
   font-size: 2rem;
 }
 </style>

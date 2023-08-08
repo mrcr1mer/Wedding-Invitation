@@ -1,5 +1,5 @@
 <template>
-  <preloader v-if="isLoading" />
+  <preloader color="#272526" v-if="isLoading" />
   <div class="wrapper">
     <main-page v-if="$platform.isMobile" />
     <plug-page v-else-if="$platform.isWeb || $platform.isTablet" />
@@ -28,6 +28,6 @@ onMounted(() => {
 .wrapper {
   overflow: hidden;
   min-height: 100vh;
-  background: url('@/assets/images/bg.png') repeat;
+  background: url('@/assets/images/background.jpg') repeat;
 }
 </style>
