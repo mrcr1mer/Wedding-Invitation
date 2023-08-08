@@ -1,23 +1,20 @@
 export const animateDirective = (el, binding) => {
-  if (binding.modifiers.title) el.setAttribute('animate-title', 'animate title')
-  else el.setAttribute('animate-text', 'animate text')
+  binding.modifiers.title ? el.classList.add('_anim-title') : el.classList.add('_anim-text')
 
   const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('_animate')
-          observer.unobserve(entry.target)
-          setTimeout(() => {
-            binding.modifiers.title
-              ? entry.target.removeAttribute('animate-title')
-              : entry.target.removeAttribute('animate-text')
-            entry.target.classList.remove('_animate')
-          }, 1000)
-        }
-      })
+    ([entry], observer) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('_animate')
+        observer.unobserve(entry.target)
+        setTimeout(() => {
+          binding.modifiers.title
+            ? entry.target.classList.remove('_anim-title')
+            : entry.target.classList.remove('_anim-text')
+          entry.target.classList.remove('_animate')
+        }, 5000)
+      }
     },
-    { threshold: 1 }
+    { threshold: 0.5 }
   )
 
   observer.observe(el)

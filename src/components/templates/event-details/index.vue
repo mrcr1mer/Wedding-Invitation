@@ -4,13 +4,13 @@
       <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
     </div>
     <div class="event-details__item second">
-      <div class="event-details__label">Когда?</div>
-      <time class="event-details__date">27 августа 2023</time>
+      <div v-animate.title class="event-details__label text">Когда?</div>
+      <time v-animate.title class="event-details__date">27 августа 2023</time>
     </div>
     <div class="event-details__item third">
-      <div class="event-details__label">Где?</div>
-      <div class="event-details__place">Трасса Алматы-Бишкек, 114</div>
-      <span>Rancho Club</span>
+      <div v-animate.title class="event-details__label text">Где?</div>
+      <div v-animate.title class="event-details__place">Трасса Алматы-Бишкек, 114</div>
+      <span v-animate.title>Rancho Club</span>
     </div>
     <div class="event-details__item fourth">
       <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
@@ -84,8 +84,7 @@
   }
 
   &__label {
-    font-family: Roboto, sans-serif;
-    font-weight: 300;
+    font-style: normal;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section class="schedule">
-    <h2 class="schedule__title title">Программа</h2>
+    <h2 v-animate.title class="schedule__title title">Программа</h2>
     <div class="schedule__items">
       <div v-animate v-for="item in firstDay" :key="item.id" class="schedule__item">
         <span class="schedule__time">{{ item.time }}</span>

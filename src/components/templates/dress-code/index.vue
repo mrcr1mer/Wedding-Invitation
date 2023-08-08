@@ -1,10 +1,10 @@
 <template>
   <section class="dress-code">
-    <h2 v-animate class="title">О дресс-коде</h2>
+    <h2 v-animate.title class="title">О дресс-коде</h2>
     <p v-animate class="text">
       Мы будем очень благодарны, если вы поддержите стиль и цвет нашей свадьбы в своих нарядах:
     </p>
-    <div v-animate class="dress-code__colors">
+    <div v-animate.title class="dress-code__colors">
       <div class="dress-code__colors-label text">Цвета:</div>
       <acceptable-colors class="_anim-item" :colors="colors" />
     </div>

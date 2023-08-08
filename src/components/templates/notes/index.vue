@@ -1,11 +1,11 @@
 <template>
   <section class="notes">
     <div class="notes__date">
-      <h2 v-animate class="date-title title">До свадьбы осталось</h2>
-      <countdown-timer class="_anim-item" target-date="2023-08-27" />
+      <h2 v-animate.title class="date-title title">До свадьбы осталось</h2>
+      <countdown-timer v-animate target-date="2023-08-27" />
     </div>
     <card mark border-radius="20px">
-      <h2 v-animate class="notes__title title">Организационные моменты</h2>
+      <h2 v-animate.title class="notes__title title">Организационные моменты</h2>
       <p v-animate class="text">
         Такой день бывает один раз и по возможности, мы искренне просим вас, отпроситься с работы на
         полдня в понедельник, чтобы чувствовать себя комфортно и присутствовать с нами до конца

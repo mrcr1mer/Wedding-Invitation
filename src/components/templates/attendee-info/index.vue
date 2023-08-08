@@ -1,6 +1,6 @@
 <template>
   <section class="attendee-info">
-    <h1 v-animate class="title">Пожалуйста, подтвердите свое присутствие</h1>
+    <h1 v-animate.title class="title">Пожалуйста, подтвердите свое присутствие</h1>
     <form class="attendee-info__form text" @submit.prevent>
       <base-input v-animate v-model="textInput" placeholder="Имя и Фамилия" />
       <div class="attendee-info__options">
