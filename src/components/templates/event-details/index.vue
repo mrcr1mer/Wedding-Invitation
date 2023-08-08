@@ -20,6 +20,7 @@
 
 <style scoped lang="scss">
 .event-details {
+  padding: 0;
   display: grid;
   grid-template: repeat(2, 220px) / repeat(2, 1fr);
 

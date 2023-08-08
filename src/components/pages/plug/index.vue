@@ -1,14 +1,26 @@
 <template>
-  <div class="plug">Зайдите с мобильного устройства</div>
+  <div class="plug">
+    <div class="plug__text">
+      Пожалуйста откройсте <br> приглашение с телефона
+    </div>
+    <span class="plug__text">&#x2764</span>
+  </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .plug {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   height: 100vh;
-  font-size: 40px;
-  font-weight: 700;
+  &__text {
+    font-family: serif;
+    font-weight: 400;
+    font-size: 50px;
+    text-align: center;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
 }
 </style>

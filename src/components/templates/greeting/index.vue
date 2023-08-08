@@ -12,12 +12,13 @@
           <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
         </div>
         <div class="greeting__content">
-          <h1 class="greeting__title">Дорогие наши родные и друзья!</h1>
-          <p class="greeting__text">
+          <h1 v-animate.title class="title">Дорогие наши родные и друзья!</h1>
+          <p v-animate class="text">
             Летом состоится очень важное и радостное для нас событие- наша свадьба
           </p>
-          <p class="greeting__text">
-            Этот день невозможно представить без самых близких для нас людей, мы бы очень хотели,чтобы вы провели его вместе с нами
+          <p v-animate class="text">
+            Этот день невозможно представить без самых близких для нас людей, мы бы очень
+            хотели,чтобы вы провели его вместе с нами
           </p>
         </div>
       </div>
@@ -31,14 +32,10 @@ import ScrollMarquee from '@/components/atom/marquee/index.vue'
 </script>
 
 <style scoped lang="scss">
-section {
-  padding: 40px 20px;
-}
-
 .greeting {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 
   &__marquee {
     position: absolute;
@@ -72,19 +69,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
-
-  &__title {
-    font-family: sans-serif;
-    font-size: 35px;
-  }
-
-  &__text {
-    font-family: Roboto, sans-serif;
-    font-style: italic;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.5;
   }
 }
 </style>

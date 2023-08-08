@@ -1,5 +1,5 @@
 <template>
-  <time class="date" :datetime="targetDate" v-if="timeLeft > 0">
+  <time v-if="timeLeft > 0" class="date" :datetime="targetDate">
     <span class="date__item">
       <strong>{{ formattedTime.days }}</strong>
       <span>дней</span>
@@ -76,17 +76,24 @@ onMounted(() => {
     align-items: center;
 
     strong {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+    }
+
+    span {
+      font-size: 1.25rem;
     }
   }
 
   .colon {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 
 .time-up {
+  display: block;
+  width: 100%;
+  text-align: center;
   font-size: 2rem;
 }
 </style>

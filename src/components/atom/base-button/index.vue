@@ -24,10 +24,11 @@ defineEmits(['click'])
 
 <style scoped lang="scss">
 .button {
+  font-family: Roboto+Slab, serif;
   height: 50px;
   padding: 0 20px;
   width: 100%;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   background-color: v-bind(bgColor);
   color: #fff;
 }
