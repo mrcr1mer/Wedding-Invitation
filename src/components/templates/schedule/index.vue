@@ -73,6 +73,16 @@ const firstDay = [
     font-size: 24px;
     text-transform: uppercase;
 
+    @media (max-width: 355px) {
+      @supports (hyphens: auto) {
+        hyphens: auto;
+      }
+
+      @supports not(hyphens: auto) {
+        word-break: break-word;
+      }
+    }
+
     &:not(:last-child) {
       margin-bottom: 15px;
     }

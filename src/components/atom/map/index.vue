@@ -9,16 +9,6 @@
     ></iframe>
   </section>
 </template>
-<script setup>
-// <iframe
-//   src="https://yandex.kz/map-widget/v1/?ll=76.635680%2C43.230095&mode=search&oid=235113457263&ol=biz&z=17.00"
-//  src="https://yandex.kz/map-widget/v1/profile?ll=76.635680%2C43.230095&z=17.00"
-//   width="100%"
-//   height="100%"
-//   frameBorder="0"
-// >
-// </iframe>
-</script>
 
 <style lang="scss" scoped>
 .map {

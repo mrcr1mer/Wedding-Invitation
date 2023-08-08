@@ -40,6 +40,7 @@ const timeLeft = ref(targetTimestamp - currentTime.value)
 const formattedTime = computed(() => {
   if (timeLeft.value > 0) {
     const days = Math.floor(timeLeft.value / (1000 * 60 * 60 * 24))
+    console.log(timeLeft.value)
     const hours = Math.floor((timeLeft.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       .toString()
       .padStart(2, '0')
@@ -67,7 +68,7 @@ onMounted(() => {
 .date {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 
   &__item {

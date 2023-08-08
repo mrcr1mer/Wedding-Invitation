@@ -21,9 +21,6 @@ import Schedule from "@/components/templates/schedule/index.vue"
 import DressCode from "@/components/templates/dress-code/index.vue"
 import Notes from "@/components/templates/notes/index.vue"
 import AttendeeInfo from "@/components/templates/attendee-info/index.vue"
-import { useIntersectionObserver } from "@/composables/observer"
-
-useIntersectionObserver()
 </script>
 
 <style scoped lang="scss">
@@ -33,7 +30,7 @@ useIntersectionObserver()
 }
 
 .footer {
-  padding: 10px 20px 30px;
+  padding: 0 20px 30px;
   text-align: center;
   font-size: 30px;
   display: flex;

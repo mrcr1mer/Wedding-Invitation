@@ -1,7 +1,7 @@
 <template>
   <div class="plug">
     <div class="plug__text">
-      Пожалуйста откройсте <br> приглашение с телефона
+      Пожалуйста откройте <br> приглашение с телефона
     </div>
     <span class="plug__text">&#x2764</span>
   </div>

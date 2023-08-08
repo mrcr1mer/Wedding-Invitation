@@ -72,15 +72,15 @@ import ScrollMarquee from '@/components/atom/marquee/index.vue'
   }
 
   .title {
-    transition-delay: 0.3s;
+    transition-delay: 0.2s;
   }
 
   p {
     &:nth-of-type(1) {
-      transition-delay: 0.5s;
+      transition-delay: 0.3s;
     }
     &:nth-of-type(2) {
-      transition-delay: 0.6s;
+      transition-delay: 0.4s;
     }
   }
 

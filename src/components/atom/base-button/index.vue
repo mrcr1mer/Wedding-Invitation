@@ -28,7 +28,7 @@ defineEmits(['click'])
   height: 50px;
   padding: 0 20px;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   background-color: v-bind(bgColor);
   color: #fff;
 }
