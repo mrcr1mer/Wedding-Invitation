@@ -47,13 +47,17 @@ const sendInfo = async () => {
     const response = await fetch('http://127.0.0.1:5173/Wedding-Invitation/', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json; charset=UTF-8'
       },
-      body: JSON.stringify({ username: textInput, value: selectedOption })
+      body: JSON.stringify({
+        username: textInput.value,
+        value: selectedOption.value
+      })
     })
-    const result = await response.json()
-    if (result.ok) {
-      alert('Отпрпавлено, спасибо!')
+    if (response.ok) {
+      const result = await response.json()
+      alert('Отправлено, спасибо!')
+      console.log(result)
     } else {
       alert('Произошла ошибка, попробуйте еще раз')
     }
