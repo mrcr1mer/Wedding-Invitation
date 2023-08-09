@@ -24,7 +24,6 @@
         opacity: 0;
         visibility: hidden;
         z-index: -1;
-        animation: hide-preloader;
       }
 
       .preloader__circle {
@@ -55,7 +54,12 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="/Wedding-Invitation/assets/index-684b88a4.js"></script>
+    <script defer>
+      window.addEventListener('load', () => {
+        document.documentElement.classList.add('loaded')
+      })
+    </script>
+    <script type="module" crossorigin src="/Wedding-Invitation/assets/index-aaf72606.js"></script>
     <link rel="stylesheet" href="/Wedding-Invitation/assets/index-8a7bd4ec.css">
   </head>
   <body>
