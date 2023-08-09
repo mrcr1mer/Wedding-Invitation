@@ -33,11 +33,11 @@ const selectedOption = ref('')
 
 const optionsInfo = [
   {
-    label: 'Я прийду/мы придём',
+    label: 'Я буду/мы будем ',
     value: 'yes'
   },
   {
-    label: 'Придти не получится',
+    label: 'К сожалению не получится присутствовать',
     value: 'no'
   }
 ]

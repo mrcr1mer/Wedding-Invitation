@@ -38,20 +38,20 @@ const currentTime = ref(new Date().getTime())
 const timeLeft = ref(targetTimestamp - currentTime.value)
 
 const formattedTime = computed(() => {
-  if (timeLeft.value > 0) {
-    const days = Math.floor(timeLeft.value / (1000 * 60 * 60 * 24))
-    console.log(timeLeft.value)
-    const hours = Math.floor((timeLeft.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      .toString()
-      .padStart(2, '0')
-    const minutes = Math.floor((timeLeft.value % (1000 * 60 * 60)) / (1000 * 60))
-      .toString()
-      .padStart(2, '0')
-    const seconds = Math.floor((timeLeft.value % (1000 * 60)) / 1000)
-      .toString()
-      .padStart(2, '0')
-    return { days, hours, minutes, seconds }
-  }
+  if (!timeLeft.value) return
+
+  const days = Math.floor(timeLeft.value / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((timeLeft.value % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    .toString()
+    .padStart(2, '0')
+  const minutes = Math.floor((timeLeft.value % (1000 * 60 * 60)) / (1000 * 60))
+    .toString()
+    .padStart(2, '0')
+  const seconds = Math.floor((timeLeft.value % (1000 * 60)) / 1000)
+    .toString()
+    .padStart(2, '0')
+  return { days, hours, minutes, seconds }
+
 })
 
 const updateTimeLeft = () => {

@@ -1,7 +1,10 @@
 <template>
   <section class="event-details">
     <div class="event-details__item first">
-      <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
+      <picture>
+        <source srcset="@/assets/images/newlyweds.webp" type="image/webp">
+        <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+      </picture>
     </div>
     <div class="event-details__item second">
       <div v-animate.title class="event-details__label text">Когда?</div>
@@ -15,7 +18,10 @@
       <span v-animate.title>Rancho Club</span>
     </div>
     <div class="event-details__item fourth">
-      <img src="@/assets/images/newlyweds.jpg" alt="Молодожены" />
+      <picture>
+        <source srcset="@/assets/images/newlyweds.webp" type="image/webp">
+        <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+      </picture>
     </div>
   </section>
 </template>

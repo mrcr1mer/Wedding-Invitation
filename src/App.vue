@@ -28,6 +28,6 @@ onMounted(() => {
 .wrapper {
   overflow: hidden;
   min-height: 100vh;
-  background: url('@/assets/images/background.png') repeat;
+  background: url('@/assets/images/background.jpg') repeat;
 }
 </style>

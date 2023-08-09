@@ -5,6 +5,7 @@
       width="100%"
       height="100%"
       loading="lazy"
+      title="google-map"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
   </section>

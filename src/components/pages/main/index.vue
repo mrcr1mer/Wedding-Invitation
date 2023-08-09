@@ -25,7 +25,7 @@ import AttendeeInfo from "@/components/templates/attendee-info/index.vue"
 
 <style scoped lang="scss">
 .page {
-  max-width: 480px;
+  max-width: 425px;
   margin-inline: auto;
 }
 

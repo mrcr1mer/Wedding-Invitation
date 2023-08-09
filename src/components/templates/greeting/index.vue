@@ -9,16 +9,19 @@
           <scroll-marquee text="Приглашение" />
         </div>
         <div class="greeting__image">
-          <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+          <picture>
+            <source srcset="@/assets/images/newlyweds.webp" type="image/webp">
+            <img src="@/assets/images/newlyweds.jpg" alt="молодожены" />
+          </picture>
         </div>
         <div class="greeting__content">
           <h1 v-animate.title class="title _anim-title">Дорогие наши родные и друзья!</h1>
           <p v-animate class="text _anim-text">
-            Летом состоится очень важное и радостное для нас событие- наша свадьба
+            Летом состоится очень важное и радостное для нас событие - наша свадьба.
           </p>
           <p v-animate class="text _anim-text">
             Этот день невозможно представить без самых близких для нас людей, мы бы очень
-            хотели,чтобы вы провели его вместе с нами
+            хотели, чтобы вы провели его вместе с нами.
           </p>
         </div>
       </div>

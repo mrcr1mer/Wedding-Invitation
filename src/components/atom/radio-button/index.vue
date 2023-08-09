@@ -58,6 +58,7 @@ defineEmits(['update:modelValue'])
 
     &::before {
       content: '';
+      align-self: flex-start;
       flex: 0 0 24px;
       height: 24px;
       border: 1.5px solid v-bind(color);
