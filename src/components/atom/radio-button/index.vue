@@ -6,6 +6,7 @@
       :id="id" 
       :name="name" 
       :value="value" 
+      :disabled="isDisabled"
       :checked="value === modelValue"
       @change="$emit('update:modelValue', value)" />
     <label :for="id" :class="['radio-button__check-mark', { error: error }]">
@@ -25,6 +26,10 @@ defineProps({
     default: '#3C3F35'
   },
   error: {
+    type: Boolean,
+    default: false
+  },
+  isDisabled: {
     type: Boolean,
     default: false
   }

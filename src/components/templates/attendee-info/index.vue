@@ -6,6 +6,7 @@
         v-animate 
         v-model="textInput" 
         :error="isError" 
+        :is-disabled="isDisabled"
         placeholder="Имя и Фамилия" 
       />
       <div class="attendee-info__options">
@@ -18,6 +19,7 @@
           :value="item.value"
           name="feedback" v-model="selectedOption"
           :error="isError"
+          :is-disabled="isDisabled"
         >
           {{ item.label }}
         </radio-button>
@@ -126,5 +128,6 @@ const sendInfo = async () => {
 .response {
   font-family: sans-serif;
   font-size: 22px;
+  font-weight: 500;
 }
 </style>

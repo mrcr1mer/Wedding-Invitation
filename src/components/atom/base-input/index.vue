@@ -4,6 +4,7 @@
     :class="['input', {error: error}]"
     :placeholder="inputPlaceholder"
     :value="modelValue"
+    :disabled="isDisabled"
     @input="$emit('update:modelValue', $event.target.value)"
     @focus="onInputFocus"
     @blur="onInputBlur"
@@ -25,11 +26,16 @@ const props = defineProps({
   error: {
     type: Boolean,
     default: false
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false
   }
 })
 
 defineEmits(['update:modelValue'])
 
+// eslint-disable-next-line vue/no-setup-props-destructure
 const inputPlaceholder = ref(props.placeholder)
 
 const onInputFocus = () => {
