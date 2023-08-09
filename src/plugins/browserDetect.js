@@ -32,7 +32,7 @@ export const browserDetectPlugin = {
     window.addEventListener('resize', () => {
       const newPlatform = detectPlatform()
 
-      if (newPlatform !== currentPlatform.value) {
+      if (newPlatform !== currentPlatform) {
         Object.assign(currentPlatform, newPlatform)
       }
     })
@@ -40,7 +40,7 @@ export const browserDetectPlugin = {
     window.addEventListener('orientationchange', () => {
       const newPlatform = detectPlatform()
 
-      if (newPlatform !== currentPlatform.value) {
+      if (newPlatform !== currentPlatform) {
         Object.assign(currentPlatform, newPlatform)
       }
     })

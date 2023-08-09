@@ -7,6 +7,7 @@
       loading="lazy"
       title="google-map"
       referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
     ></iframe>
   </section>
 </template>

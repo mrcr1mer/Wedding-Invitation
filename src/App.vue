@@ -1,5 +1,5 @@
 <template>
-  <preloader color="#272526" v-if="isLoading" />
+<!--  <preloader color="#272526" v-if="isLoading" />-->
   <div class="wrapper">
     <main-page v-if="$platform.isMobile" />
     <plug-page v-else-if="$platform.isWeb || $platform.isTablet" />
@@ -11,17 +11,17 @@ import MainPage from '@/components/pages/main/index.vue'
 import PlugPage from '@/components/pages/plug/index.vue'
 import Preloader from '@/components/atom/preloader/index.vue'
 import { onMounted, ref } from 'vue'
-
-const isLoading = ref(true)
-
-onMounted(() => {
-  window.addEventListener('load', () => {
-    document.documentElement.classList.add('loaded')
-    setTimeout(() => {
-      isLoading.value = false
-    }, 1000)
-  })
-})
+//
+// const isLoading = ref(true)
+//
+// onMounted(() => {
+//   window.addEventListener('load', () => {
+//     document.documentElement.classList.add('loaded')
+//     setTimeout(() => {
+//       isLoading.value = false
+//     }, 1000)
+//   })
+// })
 </script>
 
 <style scoped lang="scss">
