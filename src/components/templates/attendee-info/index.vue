@@ -51,8 +51,12 @@ const sendInfo = async () => {
       },
       body: JSON.stringify({ username: textInput, value: selectedOption })
     })
-    const res = await response.json()
-    console.log(res)
+    const result = await response.json()
+    if (result.ok) {
+      alert('Отпрпавлено, спасибо!')
+    } else {
+      alert('Произошла ошибка, попробуйте еще раз')
+    }
   } catch (e) {
     console.error(e)
   }

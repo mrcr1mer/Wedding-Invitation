@@ -16,7 +16,6 @@
   height: 100vh;
   &__text {
     font-family: serif;
-    font-weight: 400;
     font-size: 50px;
     text-align: center;
     line-height: 1.2;
