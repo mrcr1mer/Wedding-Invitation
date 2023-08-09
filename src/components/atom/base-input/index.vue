@@ -1,7 +1,7 @@
 <template>
   <input
     type="text"
-    class="input"
+    :class="['input', {error: error}]"
     :placeholder="inputPlaceholder"
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
@@ -21,6 +21,10 @@ const props = defineProps({
   placeholder: {
     type: String,
     default: ''
+  },
+  error: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -46,6 +50,10 @@ const onInputBlur = () => {
   height: 30px;
   border-bottom: 1px solid #000;
   font-size: 1.25rem;
+
+  &.error {
+    border-bottom: 1px solid red;
+  }
 
   &::placeholder,
   &:-moz-placeholder {

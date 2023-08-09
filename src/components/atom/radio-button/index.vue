@@ -1,15 +1,14 @@
 <template>
   <div class="radio-button">
-    <input
-      type="radio"
-      class="radio-button__input"
-      :id="id"
-      :name="name"
-      :value="value"
+    <input 
+      type="radio" 
+      class="radio-button__input" 
+      :id="id" 
+      :name="name" 
+      :value="value" 
       :checked="value === modelValue"
-      @change="$emit('update:modelValue', value)"
-    />
-    <label :for="id" class="radio-button__check-mark">
+      @change="$emit('update:modelValue', value)" />
+    <label :for="id" :class="['radio-button__check-mark', { error: error }]">
       <slot />
     </label>
   </div>
@@ -24,6 +23,10 @@ defineProps({
   color: {
     type: String,
     default: '#3C3F35'
+  },
+  error: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -40,7 +43,7 @@ defineEmits(['update:modelValue'])
     height: 0;
     opacity: 0;
 
-    &:checked ~ {
+    &:checked~ {
       .radio-button__check-mark {
         &::after {
           transform: scale(1);
@@ -55,6 +58,12 @@ defineEmits(['update:modelValue'])
     gap: 10px;
     position: relative;
     cursor: pointer;
+
+    &.error {
+      &::before {
+        border: 1.5px solid red;
+      }
+    }
 
     &::before {
       content: '';
