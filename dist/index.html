@@ -5,10 +5,64 @@
     <link rel="icon" href="/Wedding-Invitation/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
-    <script type="module" crossorigin src="/Wedding-Invitation/assets/index-f3b438a6.js"></script>
-    <link rel="stylesheet" href="/Wedding-Invitation/assets/index-01a0e90a.css">
+    <style>
+      .preloader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: #fff;
+        z-index: 1000;
+      }
+
+      .loaded .preloader {
+        transition: all 0.7s ease;
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+      }
+
+      .preloader__circle {
+        position: relative;
+        height: 60px;
+        width: 60px;
+      }
+
+      .preloader__spinner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        border: 7px solid #272526;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: preloaderRotate 1s linear infinite;
+      }
+
+      @keyframes preloaderRotate {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/Wedding-Invitation/assets/index-a7ad4d5c.js"></script>
+    <link rel="stylesheet" href="/Wedding-Invitation/assets/index-fda1b975.css">
   </head>
   <body>
+    <div class="preloader">
+      <div class="preloader__circle">
+        <div class="preloader__spinner"></div>
+      </div>
+    </div>
     <div id="app"></div>
     
   </body>
