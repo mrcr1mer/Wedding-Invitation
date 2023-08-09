@@ -18,7 +18,7 @@
       <div class="dress-code__colors-label text">Цвета:</div>
       <acceptable-colors :colors="manColors" />
     </div>
-    <p v-animate class="text"><span>Важно: </span> мы за современный стиль<span>&#x2764</span></p>
+    <p v-animate class="text"><span>Важно: </span> мы за современный стиль<span>&#x2764;</span></p>
   </section>
 </template>
 

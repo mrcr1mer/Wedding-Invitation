@@ -9,7 +9,7 @@
     <attendee-info />
   </main>
   <footer v-animate.title class="footer">
-    Ждем вас на торжестве <span>&#x2764</span>
+    Ждем вас на торжестве <span>&#x2764;</span>
   </footer>
 </template>
 

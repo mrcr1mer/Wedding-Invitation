@@ -3,7 +3,7 @@
     <div class="plug__text">
       Пожалуйста откройте <br> приглашение с телефона
     </div>
-    <span class="plug__text">&#x2764</span>
+    <span class="plug__text">&#x2764;</span>
   </div>
 </template>
 
