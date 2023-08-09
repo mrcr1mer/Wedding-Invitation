@@ -41,8 +41,21 @@ const optionsInfo = [
     value: 'no'
   }
 ]
-const sendInfo = (data) => {
-  console.log(data)
+
+const sendInfo = async () => {
+  try {
+    const response = await fetch('http://127.0.0.1:5173/Wedding-Invitation/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: textInput, value: selectedOption })
+    })
+    const res = await response.json()
+    console.log(res)
+  } catch (e) {
+    console.error(e)
+  }
 }
 </script>
 
