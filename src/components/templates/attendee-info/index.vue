@@ -97,6 +97,7 @@ const sendInfo = async () => {
       alert('Произошла ошибка, попробуйте еще раз')
     }
   } catch (e) {
+    alert('Произошла ошибка, попробуйте еще раз')
     console.error(e)
   } finally {
     isLoading.value = false
