@@ -2,34 +2,60 @@
   <section class="attendee-info">
     <h1 v-animate.title class="title">Пожалуйста, подтвердите свое присутствие</h1>
     <form class="attendee-info__form text" @submit.prevent>
-      <base-input v-animate v-model="textInput" placeholder="Имя и Фамилия" />
+      <base-input 
+        v-animate 
+        v-model="textInput" 
+        :error="isError" 
+        :is-disabled="isDisabled"
+        placeholder="Имя и Фамилия" 
+      />
       <div class="attendee-info__options">
         <div v-animate class="attendee-info__label">Присутствие?</div>
-        <radio-button
-          v-animate
-          v-for="item in optionsInfo"
-          :key="item.value"
-          :id="item.value"
+        <radio-button 
+          v-animate 
+          v-for="item in optionsInfo" 
+          :key="item.value" 
+          :id="item.value" 
           :value="item.value"
-          name="feedback"
-          v-model="selectedOption"
+          name="feedback" v-model="selectedOption"
+          :error="isError"
+          :is-disabled="isDisabled"
         >
           {{ item.label }}
         </radio-button>
       </div>
-      <base-button v-animate type="submit" @click="sendInfo"> Отправить</base-button>
+      <base-button 
+        v-animate 
+        type="submit" 
+        @click="validateForm" 
+        :is-disabled="isDisabled"
+      >
+        Отправить
+      </base-button>
     </form>
+    <loader v-if="isLoading" />
   </section>
+  <modal :is-open="isOpen" @close="isOpen = false" max-width="340px">
+    <template #content>
+      <div class="response">Ответ принят, спасибо <span>&#x2764;</span></div>
+    </template>
+  </modal>
 </template>
 
 <script setup>
 import BaseButton from '@/components/atom/base-button/index.vue'
 import BaseInput from '@/components/atom/base-input/index.vue'
 import RadioButton from '@/components/atom/radio-button/index.vue'
+import Modal from '@/components/atom/modal/index.vue'
+import Loader from '@/components/atom/loader/index.vue'
 import { ref } from 'vue'
 
 const textInput = ref('')
 const selectedOption = ref('')
+const isLoading = ref(false)
+const isOpen = ref(false)
+const isDisabled = ref(false)
+const isError = ref(false)
 
 const optionsInfo = [
   {
@@ -42,9 +68,19 @@ const optionsInfo = [
   }
 ]
 
+const validateForm = async () => {
+  if (textInput.value && selectedOption.value) {
+    isError.value = false
+    await sendInfo()
+  } else {
+    isError.value = true
+  }
+}
+
 const sendInfo = async () => {
   try {
-    const response = await fetch('http://127.0.0.1:5173/Wedding-Invitation/', {
+    isLoading.value = true
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=UTF-8'
@@ -55,14 +91,15 @@ const sendInfo = async () => {
       })
     })
     if (response.ok) {
-      const result = await response.json()
-      alert('Отправлено, спасибо!')
-      console.log(result)
+      isOpen.value = true
+      isDisabled.value = true
     } else {
       alert('Произошла ошибка, попробуйте еще раз')
     }
   } catch (e) {
     console.error(e)
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
@@ -86,5 +123,11 @@ const sendInfo = async () => {
     flex-direction: column;
     gap: 15px;
   }
+}
+
+.response {
+  font-family: sans-serif;
+  font-size: 22px;
+  font-weight: 500;
 }
 </style>

@@ -1,5 +1,10 @@
 <template>
-  <button class="button" @click="$emit('click')" :type="type">
+  <button 
+    :class="['button', {disabled: isDisabled}]" 
+    @click="$emit('click')" 
+    :type="type" 
+    :disabled="isDisabled"
+  >
     <slot>Отправить</slot>
   </button>
 </template>
@@ -9,6 +14,10 @@ defineProps({
   bgColor: {
     type: String,
     default: '#3c3f35'
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false
   },
   type: {
     type: String,
@@ -31,5 +40,9 @@ defineEmits(['click'])
   font-size: 1.25rem;
   background-color: v-bind(bgColor);
   color: #fff;
+
+  &.disabled {
+    opacity: 0.7;
+  }
 }
 </style>
