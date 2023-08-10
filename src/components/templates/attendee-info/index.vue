@@ -2,42 +2,38 @@
   <section class="attendee-info">
     <h1 v-animate.title class="title">Пожалуйста, подтвердите свое присутствие</h1>
     <form class="attendee-info__form text" @submit.prevent>
-      <base-input 
-        v-animate 
-        v-model="textInput" 
-        :error="isError" 
+      <base-input
+        v-animate
+        v-model="textInput"
+        :error="inputError"
         :is-disabled="isDisabled"
-        placeholder="Имя и Фамилия" 
+        placeholder="Имя и Фамилия"
       />
       <div class="attendee-info__options">
         <div v-animate class="attendee-info__label">Присутствие?</div>
-        <radio-button 
-          v-animate 
-          v-for="item in optionsInfo" 
-          :key="item.value" 
-          :id="item.value" 
+        <radio-button
+          v-animate
+          v-for="item in optionsInfo"
+          :key="item.value"
+          :id="item.value"
           :value="item.value"
-          name="feedback" v-model="selectedOption"
-          :error="isError"
+          name="feedback"
+          v-model="selectedOption"
+          :error="radioError"
           :is-disabled="isDisabled"
         >
           {{ item.label }}
         </radio-button>
       </div>
-      <base-button 
-        v-animate 
-        type="submit" 
-        @click="validateForm" 
-        :is-disabled="isDisabled"
-      >
+      <base-button v-animate type="submit" @click="validateForm" :is-disabled="isDisabled">
         Отправить
       </base-button>
     </form>
-    <loader v-if="isLoading" />
+    <opacity-loader v-if="isLoading" />
   </section>
-  <modal :is-open="isOpen" @close="isOpen = false" max-width="340px">
+  <modal :is-open="isOpened" @close="isOpened = false" max-width="340px">
     <template #content>
-      <div class="response">Ответ принят, спасибо <span>&#x2764;</span></div>
+      <div class="response">Ответ принят. Cпасибо<span>&#x2764;</span></div>
     </template>
   </modal>
 </template>
@@ -47,15 +43,16 @@ import BaseButton from '@/components/atom/base-button/index.vue'
 import BaseInput from '@/components/atom/base-input/index.vue'
 import RadioButton from '@/components/atom/radio-button/index.vue'
 import Modal from '@/components/atom/modal/index.vue'
-import Loader from '@/components/atom/loader/index.vue'
+import OpacityLoader from '@/components/atom/loader/index.vue'
 import { ref } from 'vue'
 
 const textInput = ref('')
 const selectedOption = ref('')
 const isLoading = ref(false)
-const isOpen = ref(false)
+const isOpened = ref(false)
 const isDisabled = ref(false)
-const isError = ref(false)
+const inputError = ref(false)
+const radioError = ref(false)
 
 const optionsInfo = [
   {
@@ -69,11 +66,14 @@ const optionsInfo = [
 ]
 
 const validateForm = async () => {
-  if (textInput.value && selectedOption.value) {
-    isError.value = false
+  const hasTextInput = textInput.value.trim() !== ''
+  const hasSelectedOption = selectedOption.value !== ''
+
+  inputError.value = !hasTextInput
+  radioError.value = !hasSelectedOption
+
+  if (hasTextInput && hasSelectedOption) {
     await sendInfo()
-  } else {
-    isError.value = true
   }
 }
 
@@ -86,12 +86,12 @@ const sendInfo = async () => {
         'Content-Type': 'application/json; charset=UTF-8'
       },
       body: JSON.stringify({
-        username: textInput.value,
+        username: textInput.value.trim(),
         value: selectedOption.value
       })
     })
     if (response.ok) {
-      isOpen.value = true
+      isOpened.value = true
       isDisabled.value = true
     } else {
       alert('Произошла ошибка, попробуйте еще раз')
@@ -122,6 +122,10 @@ const sendInfo = async () => {
     display: flex;
     flex-direction: column;
     gap: 15px;
+  }
+
+  &__label {
+    font-weight: 500;
   }
 }
 

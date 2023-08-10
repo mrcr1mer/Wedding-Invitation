@@ -1,9 +1,9 @@
 <template>
-   <div class="loader"></div>
+   <div class="opacity-loader"></div>
 </template>
 
 <style lang="scss" scoped>
-.loader {
+.opacity-loader {
   position: fixed;
   width: 100%;
   height: 100%;

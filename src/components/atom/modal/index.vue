@@ -1,5 +1,5 @@
 <template>
-  <teleport to='#dialog'>
+  <teleport to="#dialog">
     <transition>
       <div class="modal-wrapper" v-if="isOpen">
         <div ref="modal" class="modal" :style="{ '--max-width': maxWidth }">
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
 
 const props = defineProps({
   isOpen: {
@@ -47,14 +47,21 @@ onMounted(() => {
   })
 })
 
+onBeforeUnmount(() => {
+  window.addEventListener('click', (e) => {
+    if (modal.value && !modal.value.contains(e.target)) {
+      onClose()
+    }
+  })
+})
+
 watch(
   () => props.isOpen,
   (newVal) => {
     if (newVal) {
       document.body.style.cssText = `
 				  overflow: hidden;
-          padding-right: ${window.innerWidth - document.documentElement.clientWidth
-        }px;
+          padding-right: ${window.innerWidth - document.documentElement.clientWidth}px;
         `
     } else {
       setTimeout(() => {
